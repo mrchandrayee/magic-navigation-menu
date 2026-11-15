@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1c1d22">
+  <title>Magic Navigation Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>Magic navigation menu</h1>
+    <section class="demo-area" aria-label="Magic navigation menu demo">
+      <nav class="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li class="list active">
+            <a href="#home" aria-current="page" aria-label="Home">
+              <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5.5 9v11h5.2v-6h2.6v6h5.2V9"/></svg></span>
+              <span class="text">Home</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#profile" aria-label="Profile">
+              <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="4"/><path d="M4 21c.4-4.2 3.3-6.5 8-6.5s7.6 2.3 8 6.5"/></svg></span>
+              <span class="text">Profile</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#message" aria-label="Message">
+              <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-8.7 8.5 9.4 9.4 0 0 1-4-.9L3 21l1.5-4.2a8.2 8.2 0 0 1-1.2-5.3A8.6 8.6 0 0 1 12 3a8.5 8.5 0 0 1 8.5 8.5Z"/></svg></span>
+              <span class="text">Message</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#photos" aria-label="Photos">
+              <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l1.6-2h6.8L17 7h3a1.5 1.5 0 0 1 1.5 1.5v10A1.5 1.5 0 0 1 20 20H4a1.5 1.5 0 0 1-1.5-1.5v-10A1.5 1.5 0 0 1 4 7Z"/><circle cx="12" cy="13" r="4"/></svg></span>
+              <span class="text">Photos</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#settings" aria-label="Settings">
+              <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.8 3.5h4.4l.6 2.2 1.8 1.1 2.2-.6 2.2 3.8-1.6 1.7v2.1l1.6 1.7-2.2 3.8-2.2-.6-1.8 1.1-.6 2.2H9.8l-.6-2.2-1.8-1.1-2.2.6L3 15.5l1.6-1.7v-2.1L3 10l2.2-3.8 2.2.6 1.8-1.1.6-2.2Z"/><circle cx="12" cy="12.8" r="3"/></svg></span>
+              <span class="text">Settings</span>
+            </a>
+          </li>
+          <div class="indicator" aria-hidden="true"></div>
+        </ul>
+      </nav>
+    </section>
+    <p class="hint">Select an icon to move the green active indicator.</p>
+    <footer>PURE HTML · CSS · VANILLA JAVASCRIPT</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

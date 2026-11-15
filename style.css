@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #1c1d22;
+  --clr: #20f45b;
+  --nav-width: 400px;
+  --item-width: 70px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  padding: 28px 16px;
+  background: var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page {
+  width: min(100%, 760px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin: 0 0 68px;
+  color: #0798f4;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 140, 255, .2);
+}
+
+.demo-area {
+  width: 100%;
+  min-height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 14px;
+  background: var(--bg);
+}
+
+.navigation {
+  position: relative;
+  width: var(--nav-width);
+  max-width: 100%;
+  height: 70px;
+  padding: 0 25px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.nav-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list .list {
+  position: relative;
+  z-index: 1;
+  width: var(--item-width);
+  height: 70px;
+  flex: 0 0 var(--item-width);
+}
+
+.nav-list .list a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  color: #242833;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.icon {
+  position: relative;
+  display: block;
+  width: 70px;
+  height: 70px;
+  line-height: 75px;
+  color: var(--bg);
+  transition: .5s;
+}
+
+.icon svg {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: .5s;
+}
+
+.list.active a .icon {
+  transform: translateY(-32px);
+  color: #071b0d;
+}
+
+.text {
+  position: absolute;
+  color: #111;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: .5s;
+}
+
+.list.active a .text {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+/* Green bubble indicator */
+.indicator {
+  position: absolute;
+  top: -50%;
+  left: 5px;
+  width: 60px;
+  height: 60px;
+  border: 6px solid var(--bg);
+  border-radius: 50%;
+  background: var(--clr);
+  transition: .5s;
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 1px -10px 0 0 var(--bg);
+}
+
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: -1px -10px 0 0 var(--bg);
+}
+
+.nav-list .list:nth-child(1).active ~ .indicator { transform: translateX(calc(var(--item-width) * 0)); }
+.nav-list .list:nth-child(2).active ~ .indicator { transform: translateX(calc(var(--item-width) * 1)); }
+.nav-list .list:nth-child(3).active ~ .indicator { transform: translateX(calc(var(--item-width) * 2)); }
+.nav-list .list:nth-child(4).active ~ .indicator { transform: translateX(calc(var(--item-width) * 3)); }
+.nav-list .list:nth-child(5).active ~ .indicator { transform: translateX(calc(var(--item-width) * 4)); }
+
+.hint {
+  margin: 0;
+  color: #92949c;
+  font-size: 12px;
+  text-align: center;
+}
+
+footer {
+  margin-top: 45px;
+  color: #656873;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  :root { --item-width: 56px; }
+  h1 { margin-bottom: 40px; }
+  .navigation {
+    width: calc(var(--item-width) * 5 + 30px);
+    height: 64px;
+    padding: 0 15px;
+  }
+  .nav-list, .nav-list .list, .nav-list .list a, .icon {
+    height: 64px;
+  }
+  .nav-list .list { width: var(--item-width); flex-basis: var(--item-width); }
+  .icon { width: var(--item-width); line-height: 68px; }
+  .icon svg { width: 22px; height: 22px; }
+  .indicator { left: 5px; width: 52px; height: 52px; }
+  .demo-area { min-height: 210px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
